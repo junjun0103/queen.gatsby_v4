@@ -7,7 +7,7 @@ import SEO from "../SEO"
 
 export const query = graphql`
   query($slug: String!) {
-    allStrapiFeedbacks(filter: { slug: { eq: $slug } }) {
+    allStrapiFeedback(filter: { slug: { eq: $slug } }) {
       nodes {
         content_cn
         content_en
@@ -20,9 +20,11 @@ export const query = graphql`
         date
         slug
         photo {
-          sharp: childImageSharp {
-            fluid {
-              src
+          file{
+            sharp: childImageSharp {
+              fluid {
+                src
+              }
             }
           }
         }
@@ -33,7 +35,7 @@ export const query = graphql`
 
 const OneFeedBack = ({
   data: {
-    allStrapiFeedbacks: { nodes },
+    allStrapiFeedback: { nodes },
   },
 }) => {
   //restructure
@@ -84,32 +86,29 @@ const OneFeedBack = ({
           <div className="review-container_items">
             <img
               onClick={openModal}
-              src={photo.sharp.fluid.src}
+              src={photo.file.sharp.fluid.src}
               alt="img"
               className="review-img"
             ></img>
             <div className="review-contents">
               <h2
-                className={`${
-                  state.lenguage === "CN" ? "cn-font__noto_bold cn_h2" : ""
-                }`}
+                className={`${state.lenguage === "CN" ? "cn-font__noto_bold cn_h2" : ""
+                  }`}
               >
                 {title}
               </h2>
               <h3
-                className={`review-contents_nameDate ${
-                  state.lenguage === "CN"
-                    ? "cn-font__noto_sans_medium cn_h3"
-                    : "en-font__overpass_bold"
-                }`}
+                className={`review-contents_nameDate ${state.lenguage === "CN"
+                  ? "cn-font__noto_sans_medium cn_h3"
+                  : "en-font__overpass_bold"
+                  }`}
               >
                 {name}&nbsp;
                 {date}
               </h3>
               <p
-                className={`review-contents_content ${
-                  state.lenguage === "CN" ? "cn-font__noto_sans_light" : ""
-                }`}
+                className={`review-contents_content ${state.lenguage === "CN" ? "cn-font__noto_sans_light" : ""
+                  }`}
               >
                 {content}
               </p>
@@ -118,7 +117,7 @@ const OneFeedBack = ({
         </div>
         {/* modal component */}
         <Modal ref={modalRef}>
-          <img className="modalImg" src={photo.sharp.fluid.src} alt="photo" />
+          <img className="modalImg" src={photo.file.sharp.fluid.src} alt="photo" />
         </Modal>
       </section>
     </Layaout>

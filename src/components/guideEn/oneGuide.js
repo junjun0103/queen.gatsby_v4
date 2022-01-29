@@ -1,30 +1,29 @@
 import React from 'react';
 import Layaout from '../ui/layout';
-import {graphql} from 'gatsby';
+import { graphql } from 'gatsby';
 
 export const query = graphql`
     query($slug:String!){
-        allStrapiTourGuides(filter:{slug:{eq:$slug}}){
+        allStrapiTourGuide(filter:{slug:{eq:$slug}}){
             nodes {
                 name
                 profile
                 englishGuide
-                active
                 slug
             }
         }
     }
 `;
 
-const OneFeedBack = ({data:{allStrapiTourGuides:{nodes}}}) => {
+const OneFeedBack = ({ data: { allStrapiTourGuide: { nodes } } }) => {
     //restructure
-    const {name} = nodes[0];
+    const { name } = nodes[0];
 
-    return (        
+    return (
         <Layaout>
             {name}
-        </Layaout>        
-     );
+        </Layaout>
+    );
 }
- 
+
 export default OneFeedBack;

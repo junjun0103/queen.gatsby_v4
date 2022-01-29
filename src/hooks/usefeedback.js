@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const UseFeedback = () => {
   const result = useStaticQuery(graphql`
     query {
-      allStrapiFeedbacks(sort: { fields: date, order: DESC }) {
+      allStrapiFeedback(sort: { fields: date, order: DESC }) {
         nodes {
           id
           slug
@@ -18,9 +18,11 @@ const UseFeedback = () => {
           shortDescription_en
           date
           photo {
-            sharp: childImageSharp {
-              fluid {
-                src
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  src
+                }
               }
             }
           }
@@ -29,7 +31,7 @@ const UseFeedback = () => {
     }
   `)
 
-  return result.allStrapiFeedbacks.nodes.map(feedback => ({
+  return result.allStrapiFeedback.nodes.map(feedback => ({
     id: feedback.id,
     slug: feedback.slug,
     customTourFeedback: feedback.customTourFeedback,

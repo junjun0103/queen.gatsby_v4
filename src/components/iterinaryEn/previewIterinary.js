@@ -19,35 +19,31 @@ const PreviewIterinary = ({ iterinary }) => {
       <Link to={"/bestSale/" + slug}>
         <div className="preview-container_bestSale preview-boxShadow">
           <img
-            src={background_img.sharp.fluid.src}
+            src={background_img.file.sharp.fluid.src}
             alt="img"
             className="preview-img"
           />
           <h3
-            className={`preview-title ${
-              state.lenguage === "CN" ? "cn-font__noto_bold" : ""
-            }`}
+            className={`preview-title ${state.lenguage === "CN" ? "cn-font__noto_bold" : ""
+              }`}
           >
             {title_cn}
           </h3>
           <h4
-            className={`preview-departureDay ${
-              state.lenguage === "CN" ? "cn-font__noto_medium" : ""
-            }`}
+            className={`preview-departureDay ${state.lenguage === "CN" ? "cn-font__noto_medium" : ""
+              }`}
           >
             {departureDay}
           </h4>
           <h4
-            className={`preview-shortDescription ${
-              state.lenguage === "CN" ? "cn-font__noto_medium" : ""
-            }`}
+            className={`preview-shortDescription ${state.lenguage === "CN" ? "cn-font__noto_medium" : ""
+              }`}
           >
             {slogan}
           </h4>
           <h4
-            className={`preview-price ${
-              state.lenguage === "CN" ? "cn-font__noto_medium" : ""
-            }`}
+            className={`preview-price ${state.lenguage === "CN" ? "cn-font__noto_medium" : ""
+              }`}
           >
             {price}
           </h4>

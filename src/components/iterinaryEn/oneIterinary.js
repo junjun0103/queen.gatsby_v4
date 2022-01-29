@@ -9,7 +9,7 @@ import SEO from "../SEO"
 
 export const query = graphql`
   query($slug: String!) {
-    allStrapiBestSales(filter: { slug: { eq: $slug } }) {
+    allStrapiItinerary(filter: { slug: { eq: $slug } }) {
       nodes {
         excluded
         highlight
@@ -21,18 +21,24 @@ export const query = graphql`
         title_cn
         title_en
         background_img {
-          sharp: childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+          file{
+            sharp: childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
             }
           }
+          
         }
         map {
-          sharp: childImageSharp {
+          file{
+            sharp: childImageSharp {
             fixed {
               ...GatsbyImageSharpFixed
+              }
             }
           }
+          
         }
         plans_cn {
           id
@@ -40,16 +46,20 @@ export const query = graphql`
           stayAndMeals
           itinerary
           photo1 {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
           photo2 {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -61,7 +71,7 @@ export const query = graphql`
 
 const OneIterinary = ({
   data: {
-    allStrapiBestSales: { nodes },
+    allStrapiItinerary: { nodes },
   },
 }) => {
   //destructuring
@@ -84,8 +94,8 @@ const OneIterinary = ({
   var countPlans = 0
 
   //declare global image variables
-  const bgImage = background_img.sharp.fluid,
-    mapImage = map.sharp.fixed.src
+  const bgImage = background_img.file.sharp.fluid,
+    mapImage = map.file.sharp.fixed.src
 
   var title = title_cn,
     plans = plans_cn

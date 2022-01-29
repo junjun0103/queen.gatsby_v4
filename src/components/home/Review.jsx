@@ -119,7 +119,7 @@ const ThemeTour = ({
           onMouseEnter={() => contentHover()}
           onMouseLeave={() => contentHover()}
           tag="section"
-          fluid={photo.sharp.fluid}
+          fluid={photo.file.sharp.fluid}
         >
           <Link
             to={"/reviews/" + slug}

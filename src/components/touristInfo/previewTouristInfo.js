@@ -11,7 +11,7 @@ const PreviewTour = ({ tourinfo }) => {
         <Link rel="canonical" to={"/touristInformation/" + slug}>
           <div className="preview-tourInfo__container">
             <img
-              src={tourinfo.icon.sharp.fluid.src}
+              src={tourinfo.icon.file.sharp.fluid.src}
               alt="img"
               className="preview-tourInfo__img"
             ></img>

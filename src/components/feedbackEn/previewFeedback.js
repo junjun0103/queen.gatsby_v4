@@ -42,39 +42,35 @@ const PreviewFeedback = ({ feedback }) => {
       <Link rel="canonical" to={"/reviews/" + slug}>
         <div className="preview-container_review preview-container_review_boxShadow">
           <img
-            src={photo.sharp.fluid.src}
+            src={photo.file.sharp.fluid.src}
             alt="img"
             className="preview-img"
           ></img>
           <h4
-            className={`preview-departureDay ${
-              state.lenguage === "CN" ? "cn-font__noto_medium cn_h4" : ""
-            }`}
+            className={`preview-departureDay ${state.lenguage === "CN" ? "cn-font__noto_medium cn_h4" : ""
+              }`}
           >
             {title}
           </h4>
           <h4
-            className={`preview-subtitle ${
-              state.lenguage === "CN"
+            className={`preview-subtitle ${state.lenguage === "CN"
                 ? "cn-font__noto_sans_medium cn_h4"
                 : "en-font__overpass_bold"
-            }`}
+              }`}
           >
             {name}
           </h4>
           <h4
-            className={`preview-shortDescription word-break-break-all ${
-              state.lenguage === "CN" ? "cn-font__noto_light cn_h4" : ""
-            }`}
+            className={`preview-shortDescription word-break-break-all ${state.lenguage === "CN" ? "cn-font__noto_light cn_h4" : ""
+              }`}
           >
             {shortDescription}
           </h4>
           <h4
-            className={`preview-price ${
-              state.lenguage === "CN"
+            className={`preview-price ${state.lenguage === "CN"
                 ? "cn-font__noto_sans_medium "
                 : "en-font__overpass_bold"
-            }`}
+              }`}
           >
             {date}
           </h4>

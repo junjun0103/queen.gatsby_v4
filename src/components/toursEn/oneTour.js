@@ -27,16 +27,20 @@ export const query = graphql`
         title_cn
         title_en
         background_img {
-          sharp: childImageSharp {
-            fluid(quality: 100) {
-              ...GatsbyImageSharpFluid_withWebp
+          file{
+            sharp: childImageSharp {
+              fluid(quality: 100) {
+                ...GatsbyImageSharpFluid_withWebp
+              }
             }
           }
         }
         map {
-          sharp: childImageSharp {
-            fixed {
-              ...GatsbyImageSharpFixed
+          file{
+            sharp: childImageSharp {
+              fixed {
+                ...GatsbyImageSharpFixed
+              }
             }
           }
         }
@@ -46,16 +50,20 @@ export const query = graphql`
           stayAndMeals
           itinerary
           photo1 {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
           photo2 {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -66,16 +74,20 @@ export const query = graphql`
           stayAndMeals
           itinerary
           photo1 {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
           photo2 {
-            sharp: childImageSharp {
-              fluid {
-                ...GatsbyImageSharpFluid
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  ...GatsbyImageSharpFluid
+                }
               }
             }
           }
@@ -125,8 +137,8 @@ const OneFeedBack = ({
     policy = ""
 
   //declare global image variables
-  const bgImage = background_img.sharp.fluid,
-    mapImage = map.sharp.fixed.src
+  const bgImage = background_img.file.sharp.fluid,
+    mapImage = map.file.sharp.fixed.src
 
   if (state.lenguage === "EN") {
     //main Background Image

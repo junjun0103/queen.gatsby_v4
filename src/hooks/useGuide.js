@@ -3,17 +3,18 @@ import { graphql, useStaticQuery } from "gatsby"
 const UseTour = () => {
   const result = useStaticQuery(graphql`
     query {
-      allStrapiTourGuides {
+      allStrapiTourGuide {
         nodes {
           name
           profile
           englishGuide
-          active
           slug
           photo {
-            sharp: childImageSharp {
-              fluid {
-                src
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  src
+                }
               }
             }
           }
@@ -22,11 +23,10 @@ const UseTour = () => {
     }
   `)
 
-  return result.allStrapiTourGuides.nodes.map(guide => ({
+  return result.allStrapiTourGuide.nodes.map(guide => ({
     name: guide.name,
     profile: guide.profile,
     englishGuide: guide.englishGuide,
-    active: guide.active,
     slug: guide.slug,
     photo: guide.photo,
   }))

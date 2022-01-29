@@ -4,7 +4,6 @@ const UseTour = () => {
   const result = useStaticQuery(graphql`
     query {
       allStrapiThemeTour(
-        filter: { active: { eq: true } }
         sort: { fields: id, order: DESC }
       ) {
         nodes {
@@ -24,9 +23,11 @@ const UseTour = () => {
           title_cn
           title_en
           background_img {
-            sharp: childImageSharp {
-              fluid {
-                src
+            file{
+              sharp: childImageSharp {
+                fluid {
+                  src
+                }
               }
             }
           }
@@ -36,16 +37,20 @@ const UseTour = () => {
             stayAndMeals
             itinerary
             photo1 {
-              childImageSharp {
-                fluid {
-                  src
+              file{
+                childImageSharp {
+                  fluid {
+                    src
+                  }
                 }
               }
             }
             photo2 {
-              childImageSharp {
-                fluid {
-                  src
+              file{
+                childImageSharp {
+                  fluid {
+                    src
+                  }
                 }
               }
             }

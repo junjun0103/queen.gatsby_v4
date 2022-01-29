@@ -20,7 +20,7 @@ const PreviewGuide = ({ guide, language }) => {
       <div className="previewGuide-container">
         <img
           onClick={openModal}
-          src={guide.photo.sharp.fluid.src}
+          src={guide.photo.file.sharp.fluid.src}
           alt="img"
           className="previewGuide-img"
         ></img>
@@ -37,9 +37,8 @@ const PreviewGuide = ({ guide, language }) => {
           {/* guide profile */}
           <div className="richText-template">
             <article
-              className={`richText-content text-align-justify ${
-                language === "CN" ? "cn-font__noto_sans_light" : ""
-              }`}
+              className={`richText-content text-align-justify ${language === "CN" ? "cn-font__noto_sans_light" : ""
+                }`}
             >
               <ReactMarkdown source={guide.profile}></ReactMarkdown>
             </article>
@@ -50,7 +49,7 @@ const PreviewGuide = ({ guide, language }) => {
       <Modal ref={modalRef}>
         <img
           className="modalImg"
-          src={guide.photo.sharp.fluid.src}
+          src={guide.photo.file.sharp.fluid.src}
           alt="photo"
         />
       </Modal>

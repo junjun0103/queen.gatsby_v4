@@ -22,21 +22,29 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
-      resolve: `gatsby-source-strapi`,
+      resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: `http://128.199.125.141:1337`,
-        queryLimit: 1000,
-        contentTypes: [
-          `best-sales`,
-          "Feedbacks",
-          "Theme-Tour",
-          "Tour-Guides",
-          "Tourist-Information",
-        ],
-        loginData: {
-          identifier: "carlos",
-          password: "123456",
-        },
+        apiURL: 'https://stormy-cliffs-94333.herokuapp.com',
+        collectionTypes: ['itinerary', 'feedback', 'theme-tour', 'tour-guide', 'tourist-information'],
+        singleTypes: ['header'],
+        // Extract images from markdown fields.
+        // markdownImages: {
+        //   typesToParse: {
+        //     Article: ['body'],
+        //     ComponentBlockBody: ['text'],
+        //   },
+        // },
+        // Only include specific locale.
+        locale: 'en', // default to all
+        // Include drafts in build.
+        preview: true, // defaults to false
+        // Use application token.
+        token: '2b8c8669762c8c30f270f9ab44433fd273d429720c086aae92bd40826b1c5beaa095af554c78066e302209a814e87c5340b57d8394fbfdcfbbaa257b1826577b91b2f6b81b38f2e3816bbf0719dee9433f52b7f236b51efadf8a69a971615cb9e5fd377f992453acb9c7a64ca209adf8ca3d4031d71b817edcd670d35a511680',
+
+        //queen-> token: 'e615f3498dc84455ec8d7895a2e733b465103d271f8649f1b515163194aaa3030822fd09421b7a4c28adaf66ce7e9f0bacfc8579fb9b8c7b47f2c088e156acdf742b1f9bbfd53803a84ccf8785d924540c6905e1886b9627d99767c358d87ad306688d1fb7ab0986a4271aff273edba15b171a1a1b89c9184726acd07dbc51d1',
+        //local-> token: '7d29f21cb5c12eecad06a0dd1df64965e089728397f8f72a07a5a95a2ee5908e7662a4d534406a1eaad872d0f4331962833c52cc79136e513f44df0ebb36f84ce122d911c36e9ce8f55e8d0e10a702c1e565659294f681f803b0aee9180ecb49427a6cff637663e604d4a74574a3cdc01126b2707c3dd18008526ecee6f7fa45',
+        // Add additional headers.
+        headers: {},
       },
     },
     {

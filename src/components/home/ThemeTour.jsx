@@ -86,7 +86,7 @@ const ThemeTour = ({ title_en, title_cn, background_img, slug }) => {
         to={"/themeTour/" + slug}
         className="background-image"
         style={{
-          backgroundImage: `url(${background_img.sharp.fluid.src})`,
+          backgroundImage: `url(${background_img.file.sharp.fluid.src})`,
         }}
       />
 

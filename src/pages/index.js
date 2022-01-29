@@ -16,7 +16,6 @@ export const query = graphql`
   {
     allStrapiThemeTour(
       limit: 9
-      filter: { active: { eq: true } }
       sort: { fields: id, order: DESC }
     ) {
       nodes {
@@ -27,15 +26,17 @@ export const query = graphql`
         title_en
         title_cn
         background_img {
-          sharp: childImageSharp {
-            fluid {
-              src
+          file{
+            sharp: childImageSharp {
+              fluid {
+                src
+              }
             }
           }
         }
       }
     }
-    allStrapiFeedbacks(limit: 9, sort: { fields: date, order: DESC }) {
+    allStrapiFeedback(limit: 9, sort: { fields: date, order: DESC }) {
       nodes {
         id
         slug
@@ -47,9 +48,11 @@ export const query = graphql`
         name_en
         name_cn
         photo {
-          sharp: childImageSharp {
-            fluid {
-              src
+          file{
+            sharp: childImageSharp {
+              fluid {
+                src
+              }
             }
           }
         }
@@ -60,7 +63,7 @@ export const query = graphql`
 const IndexPage = ({
   data: {
     allStrapiThemeTour: { nodes: themeTourData },
-    allStrapiFeedbacks: { nodes: feedbackData },
+    allStrapiFeedback: { nodes: feedbackData },
   },
 }) => {
   const state = useContext(GlobalStateContext) || { lenguage: "CN" }
@@ -77,9 +80,8 @@ const IndexPage = ({
       {/**Slogan */}
       <article className="main-header__bottom__bar">
         <h1
-          className={` main-header__bottom__text ${
-            state.lenguage === "CN" ? "cn-font__zcool cn_h1" : "slogan-style"
-          }`}
+          className={` main-header__bottom__text ${state.lenguage === "CN" ? "cn-font__zcool cn_h1" : "slogan-style"
+            }`}
         >
           {state.lenguage === "EN"
             ? `Choose Queen's Travel, explore your dream`

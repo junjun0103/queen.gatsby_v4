@@ -32,21 +32,19 @@ const PreviewTour = ({ tour }) => {
       <Link rel="canonical" to={"/themeTour/" + slug}>
         <div className="preview-container_themeTour preview-boxShadow">
           <img
-            src={background_img.sharp.fluid.src}
+            src={background_img.file.sharp.fluid.src}
             alt="img"
             className="preview-img"
           ></img>
           <h3
-            className={`preview-title ${
-              state.lenguage === "CN" ? "cn-font__noto_bold" : ""
-            }`}
+            className={`preview-title ${state.lenguage === "CN" ? "cn-font__noto_bold" : ""
+              }`}
           >
             {title}
           </h3>
           <h4
-            className={`preview-subTitle ${
-              state.lenguage === "CN" ? "cn-font__noto_medium" : ""
-            }`}
+            className={`preview-subTitle ${state.lenguage === "CN" ? "cn-font__noto_medium" : ""
+              }`}
           >
             {slogan}
           </h4>

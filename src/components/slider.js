@@ -50,7 +50,7 @@ const Slider = ({ contents, titleEn, titleCn, subTitleEn, subTitleCn }) => {
           return (
             <div className="preview-container_review slider-height preview-container_themeTour__slider__boxShadow">
               <img
-                src={content.photo.sharp.fluid.src}
+                src={content.photo.file.sharp.fluid.src}
                 alt="img"
                 className="preview-img"
               ></img>
@@ -58,18 +58,16 @@ const Slider = ({ contents, titleEn, titleCn, subTitleEn, subTitleCn }) => {
               <h4 className="preview-departureDay">{contentTitle}</h4>
 
               <h4
-                className={`preview-subtitle ${
-                  state.lenguage === "CN"
+                className={`preview-subtitle ${state.lenguage === "CN"
                     ? "cn-font__noto_sans_medium"
                     : "en-font__overpass_bold"
-                }`}
+                  }`}
               >
                 {contentName}
               </h4>
               <h4
-                className={`preview-shortDescription ${
-                  state.lenguage === "CN" ? "cn-font__noto_light" : ""
-                }`}
+                className={`preview-shortDescription ${state.lenguage === "CN" ? "cn-font__noto_light" : ""
+                  }`}
               >
                 {contentShortDesc}
               </h4>
@@ -78,11 +76,10 @@ const Slider = ({ contents, titleEn, titleCn, subTitleEn, subTitleCn }) => {
                 <h5>
                   {state.lenguage === "EN" ? "Read More" : "更多"}
                   <span
-                    className={`preview-date ${
-                      state.lenguage === "CN"
+                    className={`preview-date ${state.lenguage === "CN"
                         ? "cn-font__noto_sans_medium"
                         : "en-font__overpass_bold"
-                    }`}
+                      }`}
                   >
                     {content.date}
                   </span>

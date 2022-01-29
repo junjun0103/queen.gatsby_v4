@@ -3,12 +3,12 @@ const urlSlug = require("url-slug")
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const result = await graphql(`
     query {
-      allStrapiBestSales {
+      allStrapiItinerary {
         nodes {
           slug
         }
       }
-      allStrapiFeedbacks {
+      allStrapiFeedback {
         nodes {
           slug
         }
@@ -18,7 +18,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           slug
         }
       }
-      allStrapiTourGuides {
+      allStrapiTourGuide {
         nodes {
           slug
         }
@@ -37,19 +37,20 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   }
 
   //Generate files for iterinary
-  const iterinaries = result.data.allStrapiBestSales.nodes
+  const iterinaries = result.data.allStrapiItinerary.nodes
 
   //Generate files for feedbacks
-  const feedbacks = result.data.allStrapiFeedbacks.nodes
+  const feedbacks = result.data.allStrapiFeedback.nodes
 
   //Generate files for theme tours
   const tours = result.data.allStrapiThemeTour.nodes
 
   //Generate files for Guides tours
-  const guides = result.data.allStrapiTourGuides.nodes
+  const guides = result.data.allStrapiTourGuide.nodes
 
   //Generate files for tourist information
   const informations = result.data.allStrapiTouristInformation.nodes
+
 
   //create iterinary templates
   iterinaries.forEach(iterinary => {

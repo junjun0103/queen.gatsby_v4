@@ -35,9 +35,8 @@ const TourPlans = ({ plans, countPlans }) => {
               {/* if the plan is the last item,the line wont show up. */}
               <div className="themeTour-plan__dot"></div>
               <div
-                className={`${
-                  countPlans === i + 1 ? "" : "themeTour-plan__line"
-                }`}
+                className={`${countPlans === i + 1 ? "" : "themeTour-plan__line"
+                  }`}
               ></div>
             </div>
             <div>
@@ -46,32 +45,28 @@ const TourPlans = ({ plans, countPlans }) => {
                   <div className="themeTour-plan__routeAndIcon">
                     <FaMapMarkerAlt className="themeTour-plan__icon" />
                     <h4
-                      className={`themeTour-plan__route ${
-                        state.lenguage === "CN"
+                      className={`themeTour-plan__route ${state.lenguage === "CN"
                           ? "cn-font__noto_medium cn_h4"
                           : ""
-                      }`}
+                        }`}
                     >
                       {plan.route}
                     </h4>
                   </div>
                   <FaPlus
-                    className={`themeTour-plan__icon ${
-                      openManager[plan.id] ? "xIcon" : "plusIcon"
-                    }`}
+                    className={`themeTour-plan__icon ${openManager[plan.id] ? "xIcon" : "plusIcon"
+                      }`}
                   />
                 </div>
               </button>
               <div
-                className={`${
-                  openManager[plan.id] ? "themeTour-plan__box" : "inactive"
-                }`}
+                className={`${openManager[plan.id] ? "themeTour-plan__box" : "inactive"
+                  }`}
               >
                 <div className="richText-template themeTour-plan__itinerary">
                   <article
-                    className={`richText-content text-align-justify ${
-                      state.lenguage === "CN" ? "cn-font__noto_sans_light" : ""
-                    }`}
+                    className={`richText-content text-align-justify ${state.lenguage === "CN" ? "cn-font__noto_sans_light" : ""
+                      }`}
                   >
                     <ReactMarkdown source={plan.stayAndMeals}></ReactMarkdown>
                   </article>
@@ -79,20 +74,19 @@ const TourPlans = ({ plans, countPlans }) => {
 
                 <div className="richText-template themeTour-plan__itinerary">
                   <article
-                    className={`richText-content text-align-justify ${
-                      state.lenguage === "CN" ? "cn-font__noto_sans_light" : ""
-                    }`}
+                    className={`richText-content text-align-justify ${state.lenguage === "CN" ? "cn-font__noto_sans_light" : ""
+                      }`}
                   >
                     <ReactMarkdown source={plan.itinerary}></ReactMarkdown>
                   </article>
                 </div>
                 <Img
-                  fluid={plan.photo1.sharp.fluid}
+                  fluid={plan.photo1.file.sharp.fluid}
                   alt="photo1"
                   className="photo"
                 ></Img>
                 <Img
-                  fluid={plan.photo2.sharp.fluid}
+                  fluid={plan.photo2.file.sharp.fluid}
                   alt="photo2"
                   className="photo"
                 ></Img>

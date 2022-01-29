@@ -3,8 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 const UseItinerary = () => {
   const result = useStaticQuery(graphql`
     query {
-      allStrapiBestSales(
-        filter: { active: { eq: true } }
+      allStrapiItinerary(
         sort: { fields: id, order: DESC }
       ) {
         nodes {
@@ -19,24 +18,30 @@ const UseItinerary = () => {
           priceDetail
           departureDay
           background_img {
-            sharp: childImageSharp {
-              fluid {
-                src
-              }
-            }
-          }
-          plans_cn {
-            photo1 {
-              childImageSharp {
+            file{
+              sharp: childImageSharp {
                 fluid {
                   src
                 }
               }
             }
+          }
+          plans_cn {
+            photo1 {
+              file{
+                childImageSharp {
+                  fluid {
+                    src
+                  }
+                }
+              }
+            }
             photo2 {
-              childImageSharp {
-                fluid {
-                  src
+              file{
+                childImageSharp {
+                  fluid {
+                    src
+                  }
                 }
               }
             }
@@ -46,18 +51,18 @@ const UseItinerary = () => {
     }
   `)
 
-  return result.allStrapiBestSales.nodes.map(itinerary => ({
+  return result.allStrapiItinerary.nodes.map(itinerary => ({
     id: itinerary.id,
     slug: itinerary.slug,
-    included:itinerary.included,
-    highlight:itinerary.highlight,
-    excluded:itinerary.excluded,
-    policy:itinerary.policy,
+    included: itinerary.included,
+    highlight: itinerary.highlight,
+    excluded: itinerary.excluded,
+    policy: itinerary.policy,
     title_cn: itinerary.title_cn,
-    slogan:itinerary.slogan,
-    price:itinerary.price,
-    priceDetail:itinerary.priceDetail,
-    departureDay:itinerary.departureDay,
+    slogan: itinerary.slogan,
+    price: itinerary.price,
+    priceDetail: itinerary.priceDetail,
+    departureDay: itinerary.departureDay,
     plans_cn: itinerary.plans_cn,
     background_img: itinerary.background_img,
   }))
